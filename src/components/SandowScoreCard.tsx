@@ -1,4 +1,5 @@
 
+import { motion } from 'framer-motion';
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
 const data = [
@@ -11,18 +12,43 @@ const data = [
 
 const SandowScoreCard = () => {
   return (
-    <div className="bg-fitness-card rounded-2xl p-6">
-      <div className="flex justify-between items-center mb-4">
+    <motion.div 
+      className="bg-fitness-card rounded-2xl p-6"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      whileHover={{ scale: 1.01 }}
+    >
+      <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
         <div>
           <div className="flex items-center space-x-2">
             <span className="text-white">Sandow Score</span>
-            <span className="text-fitness-orange">+8.2</span>
+            <motion.span 
+              className="text-fitness-orange"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ repeat: Infinity, repeatType: "reverse", duration: 1.5 }}
+            >
+              +8.2
+            </motion.span>
           </div>
           <span className="text-fitness-text-gray text-sm">Increasing Steadily</span>
         </div>
-        <span className="text-white text-3xl font-bold">87.51<span className="text-sm text-fitness-text-gray ml-1">pts</span></span>
+        <motion.span 
+          className="text-white text-3xl font-bold"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          87.51<span className="text-sm text-fitness-text-gray ml-1">pts</span>
+        </motion.span>
       </div>
-      <div className="h-48">
+      <motion.div 
+        className="h-48"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+      >
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
             <Line
@@ -41,22 +67,32 @@ const SandowScoreCard = () => {
             <YAxis hide />
           </LineChart>
         </ResponsiveContainer>
-      </div>
-      <div className="flex space-x-2 mt-4">
-        {['1d', '1w', '1m', '1y', 'ALL'].map((period) => (
-          <button
+      </motion.div>
+      <motion.div 
+        className="flex space-x-2 mt-4 overflow-x-auto pb-2"
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.6 }}
+      >
+        {['1d', '1w', '1m', '1y', 'ALL'].map((period, index) => (
+          <motion.button
             key={period}
             className={`px-4 py-1 rounded-full text-sm ${
               period === '1d'
                 ? 'bg-fitness-orange text-white'
-                : 'text-fitness-text-gray'
+                : 'text-fitness-text-gray hover:bg-fitness-card/50'
             }`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 + index * 0.1 }}
           >
             {period}
-          </button>
+          </motion.button>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

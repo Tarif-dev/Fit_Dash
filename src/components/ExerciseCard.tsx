@@ -1,17 +1,31 @@
 
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+
 const ExerciseCard = () => {
   return (
-    <div className="bg-fitness-blue rounded-2xl p-6 relative overflow-hidden">
-      <div className="flex flex-col">
+    <motion.div 
+      className="bg-fitness-blue rounded-2xl p-6 relative overflow-hidden h-full"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      whileHover={{ scale: 1.02 }}
+    >
+      <div className="flex flex-col h-full">
         <span className="text-white/80 mb-2">Upcoming Exercise</span>
         <span className="text-white text-2xl font-bold mb-4">Kickboxing</span>
+        <div className="mt-auto flex justify-between items-center">
+          <span className="text-white/70 text-sm">Tomorrow • 10:00 AM</span>
+          <motion.button 
+            className="bg-white/20 p-2 rounded-full"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ArrowRight className="text-white w-4 h-4" />
+          </motion.button>
+        </div>
       </div>
-      <img
-        src="/lovable-uploads/8b8fa8bd-4643-44e5-acfc-80b7b2aca568.png"
-        alt="Kickboxer"
-        className="absolute right-0 bottom-0 h-full object-cover opacity-80"
-      />
-    </div>
+    </motion.div>
   );
 };
 
