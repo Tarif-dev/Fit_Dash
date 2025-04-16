@@ -51,7 +51,6 @@ const Index = () => {
           variants={item}
         >
           <ProfileCard />
-          <SleepCard />
         </motion.div>
         
         {/* Second column - 2 units width */}
@@ -124,6 +123,7 @@ const Index = () => {
               unit="floors"
               data={mockElevationData}
             />
+            <SleepCard />
           </motion.div>
         </motion.div>
       </motion.main>

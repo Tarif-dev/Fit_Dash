@@ -1,35 +1,69 @@
 
 import { MapPin, Heart, Droplet, Activity } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const ProfileCard = () => {
   return (
     <motion.div 
-      className="bg-fitness-orange rounded-2xl p-6 h-full"
+      className="bg-fitness-orange rounded-2xl p-6 h-full relative overflow-hidden"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}
       whileHover={{ scale: 1.02 }}
     >
-      <div className="text-white">
-        <motion.h2 
-          className="text-3xl font-bold mb-2"
-          initial={{ y: -10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          Makise Kurisu
-        </motion.h2>
-        <motion.div 
-          className="flex items-center space-x-2 mb-4 flex-wrap"
-          initial={{ y: -5, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          <MapPin className="w-4 h-4" />
-          <span>Tokyo, Japan</span>
-          <span className="bg-white/20 px-2 py-1 rounded-full text-sm">75% Healthy</span>
-        </motion.div>
+      {/* Background image with overlay */}
+      <motion.div 
+        className="absolute inset-0 opacity-20 z-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.2 }}
+        transition={{ delay: 0.3 }}
+      >
+        <img 
+          src="/lovable-uploads/c020f10b-2634-422d-a727-391b34f99883.png" 
+          alt="Background" 
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-fitness-orange opacity-80"></div>
+      </motion.div>
+
+      <div className="text-white relative z-10">
+        <div className="flex items-center gap-4 mb-4">
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2, type: "spring" }}
+          >
+            <Avatar className="h-16 w-16 border-2 border-white/30">
+              <AvatarImage src="/lovable-uploads/c020f10b-2634-422d-a727-391b34f99883.png" alt="User" />
+              <AvatarFallback>MK</AvatarFallback>
+            </Avatar>
+          </motion.div>
+          <motion.div
+            initial={{ x: 20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <motion.h2 
+              className="text-3xl font-bold"
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              Makise Kurisu
+            </motion.h2>
+            <motion.div 
+              className="flex items-center space-x-2 flex-wrap"
+              initial={{ y: -5, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <MapPin className="w-4 h-4" />
+              <span>Tokyo, Japan</span>
+              <span className="bg-white/20 px-2 py-1 rounded-full text-sm">75% Healthy</span>
+            </motion.div>
+          </motion.div>
+        </div>
         
         <motion.div 
           className="bg-black/20 rounded-xl p-4 mb-4"
