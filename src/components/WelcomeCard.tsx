@@ -1,6 +1,7 @@
 
 import { ArrowRight } from 'lucide-react';
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const WelcomeCard = () => {
   return (
@@ -25,13 +26,15 @@ const WelcomeCard = () => {
           <span className="bg-black/20 px-2 py-0.5 rounded-full">Calories: 420</span>
         </motion.div>
       </div>
-      <motion.button 
-        className="bg-black/20 p-2 rounded-full"
-        whileHover={{ scale: 1.1, backgroundColor: "rgba(0,0,0,0.3)" }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <ArrowRight className="text-white w-5 h-5" />
-      </motion.button>
+      <Link to="/dashboard">
+        <motion.button 
+          className="bg-black/20 p-2 rounded-full"
+          whileHover={{ scale: 1.1, backgroundColor: "rgba(0,0,0,0.3)" }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <ArrowRight className="text-white w-5 h-5" />
+        </motion.button>
+      </Link>
     </motion.div>
   );
 };
