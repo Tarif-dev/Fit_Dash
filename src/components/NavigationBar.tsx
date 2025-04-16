@@ -86,7 +86,7 @@ const NavigationBar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <img
-              src="https://randomuser.me/api/portraits/men/32.jpg"
+              src="/assets/christopher-campbell-rDEOVtE7vOs-unsplash.jpg"
               alt="User avatar"
               className="w-full h-full object-cover"
               onError={(e) => {

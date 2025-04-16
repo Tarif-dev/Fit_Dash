@@ -144,7 +144,7 @@ const Profile = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <img
-                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  src="/assets/christopher-campbell-rDEOVtE7vOs-unsplash.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
