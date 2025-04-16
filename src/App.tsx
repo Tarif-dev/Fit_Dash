@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Workouts from "./pages/Workouts";
 import Nutrition from "./pages/Nutrition";
 import NotFound from "./pages/NotFound";
+import Coach from "./pages/Coach";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +23,7 @@ const App = () => (
           <Route path="/dashboard" element={<Index />} />
           <Route path="/workouts" element={<Workouts />} />
           <Route path="/nutrition" element={<Nutrition />} />
-          <Route path="/coach" element={<NotFound />} />
+          <Route path="/coach" element={<Coach />} />
           <Route path="/metrics" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

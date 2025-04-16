@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
@@ -62,7 +61,7 @@ const SandowScoreCard = () => {
               dataKey="time"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#8A8A8A' }}
+              tick={false}
             />
             <YAxis hide />
           </LineChart>
