@@ -232,7 +232,7 @@ const Landing = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
               >
                 <img
-                  src="/lovable-uploads/8b8fa8bd-4643-44e5-acfc-80b7b2aca568.png"
+                  src="/assets/8b8fa8bd-4643-44e5-acfc-80b7b2aca568.png"
                   alt="Dashboard Preview"
                   className="w-full h-auto"
                 />
