@@ -1,4 +1,4 @@
-import { Search, Settings, Bell } from "lucide-react";
+import { Search, Settings, Bell, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 
@@ -79,6 +79,33 @@ const NavigationBar = () => {
         <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
           <Bell className="text-fitness-text-gray w-5 h-5 hover:text-white transition-colors" />
         </motion.div>
+        <Link to="/profile">
+          <motion.div
+            className="bg-fitness-orange text-white rounded-full w-8 h-8 flex items-center justify-center overflow-hidden border-2 border-fitness-orange hover:border-white"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="User avatar"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = ""; // Clear the broken image
+                target.onerror = null; // Prevent infinite loop
+                // Replace with user icon if image fails to load
+                const parent = target.parentElement;
+                if (parent) {
+                  parent.innerHTML = "";
+                  const userIcon = document.createElement("div");
+                  userIcon.innerHTML =
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+                  parent.appendChild(userIcon);
+                }
+              }}
+            />
+          </motion.div>
+        </Link>
       </div>
     </nav>
   );

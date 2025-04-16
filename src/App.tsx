@@ -9,6 +9,7 @@ import Workouts from "./pages/Workouts";
 import Nutrition from "./pages/Nutrition";
 import NotFound from "./pages/NotFound";
 import Coach from "./pages/Coach";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/nutrition" element={<Nutrition />} />
           <Route path="/coach" element={<Coach />} />
           <Route path="/metrics" element={<Index />} />
+          <Route path="/profile" element={<Profile />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
