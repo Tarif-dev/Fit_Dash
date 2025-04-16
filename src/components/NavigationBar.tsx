@@ -9,7 +9,7 @@ const NavigationBar = () => {
   return (
     <nav className="flex items-center justify-between py-4 px-6 sticky top-0 z-10 bg-fitness-dark/80 backdrop-blur-sm">
       <div className="flex items-center space-x-8">
-        <Link to="/metrics">
+        <Link to="/">
           <motion.div
             className="text-fitness-orange text-3xl font-bold"
             whileHover={{ scale: 1.1 }}
